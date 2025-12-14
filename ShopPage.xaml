@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CosmaSimonaLab7.ShopPage"
+             Title="ShopPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Editor Placeholder="Enter shop name" Margin="20"
+                Text="{Binding ShopName}"
+                HeightRequest="50" />
+            <Editor Placeholder="Enter shop adress" Margin="20"
+                Text="{Binding Adress}"
+                HeightRequest="50" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save Shop" Grid.Column="0" MaximumWidthRequest="200"
+                    Clicked="OnSaveButtonClicked" />
+                <Button Text="Show on Map" Grid.Column="1" MaximumWidthRequest="200"
+                    Clicked="OnShowMapButtonClicked"></Button>
+                <Button Text="Delete" Grid.Column="1"
+                    MaximumWidthRequest="200"
+                    Clicked="OnDeleteButtonClicked" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
