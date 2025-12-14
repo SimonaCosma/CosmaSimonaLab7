@@ -12,14 +12,6 @@ public partial class ListPage : ContentPage
     {
         var slist = (ShopList)BindingContext;
         slist.Date = DateTime.UtcNow;
-        Shop selectedShop = (ShopPicker.SelectedItem as Shop);
-        if (selectedShop != null)
-        {
-            slist.ShopID = selectedShop.ID;
-        }
-        await DisplayAlert("DEBUG",
-        $"SelectedShop: {selectedShop?.ShopName ?? "null"}, ShopID: {slist.ShopID}",
-        "OK");
         await App.Database.SaveShopListAsync(slist);
         await Navigation.PopAsync();
     }
@@ -49,16 +41,7 @@ public partial class ListPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        var items = await App.Database.GetShopsAsync();
-        ShopPicker.ItemsSource = (System.Collections.IList)items;
-        ShopPicker.ItemDisplayBinding = new Binding("ShopDetails");
         var shopl = (ShopList)BindingContext;
-        if (shopl.ShopID != 0)
-        {
-            var selected = items.FirstOrDefault(s => s.ID == shopl.ShopID);
-            if (selected != null)
-                ShopPicker.SelectedItem = selected;
-        }
         listView.ItemsSource = await App.Database.GetListProductsAsync(shopl.ID);
     }
 }
