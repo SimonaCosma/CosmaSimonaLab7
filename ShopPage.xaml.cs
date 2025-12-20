@@ -45,7 +45,6 @@ public partial class ShopPage : ContentPage
     {
         var shop = (Shop)BindingContext;
 
-        // po?i ad?uga ?i un dialog de confirmare, dac? vrei
         await App.Database.DeleteShopAsync(shop);
 
         await Navigation.PopAsync();

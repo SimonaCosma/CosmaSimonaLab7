@@ -4,7 +4,7 @@
              x:Class="CosmaSimonaLab7.ListPage"
              Title="ListPage">
     <ContentPage.Content xmlns:local="clr-namespace:CosmaSimonaLab7">
-        <StackLayout Margin="20">
+        <StackLayout Margin="20" >
             <Editor Placeholder="Enter the description of the shopping list"
                 Text="{Binding Description}"
                 HeightRequest="50" >
